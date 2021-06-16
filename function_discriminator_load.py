@@ -39,7 +39,7 @@ class Discriminator(nn.Module):
 class MnistDataset(KubeDataset):
 
     def __init__(self):
-        super().__init__("mnist_disc")
+        super().__init__("mnist_gan")
 
     def __getitem__(self, index):
         x_real = self.data[index]

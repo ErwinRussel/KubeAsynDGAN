@@ -11,8 +11,8 @@ from torch.autograd import Variable
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 download = False
-train_size = 1000
-test_size = 100
+train_size = 10000
+test_size = 1000
 
 # Get Real Dataset
 transform = transforms.Compose([transforms.ToTensor(),

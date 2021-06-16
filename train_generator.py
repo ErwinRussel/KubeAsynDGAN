@@ -63,7 +63,7 @@ class TrainGenerator:
         self.G_optimizer = optim.Adam(self.G.parameters(), lr = self.lr)
 
         self.G_losses = []
-        self.dataset_size = 1000
+        self.dataset_size = 10000
         self.batch_size = 64
 
         self.D_latest = Discriminator()
