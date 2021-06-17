@@ -60,7 +60,7 @@ class TrainGenerator:
 
         self.criterion = nn.BCELoss()
         self.lr = 0.0002
-        self.G_optimizer = optim.Adam(self.G.parameters(), lr = self.lr)
+        self.G_optimizer = optim.SGD(self.G.parameters(), lr=self.lr, momentum=0.9, weight_decay=1e-4)
 
         self.G_losses = []
         self.dataset_size = 10000

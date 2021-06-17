@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 from kubeml import KubeModel, KubeDataset
-from torch.optim import SGD, Adam
+from torch.optim import SGD
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -68,8 +68,8 @@ class KubeDiscriminator(KubeModel):
         self._network.load_state_dict(state_dict)
 
     def configure_optimizers(self) -> torch.optim.Optimizer:
-        adam = Adam(self.parameters(), lr=self.lr)
-        return adam
+        sgd = SGD(self.parameters(), lr=self.lr, momentum=0.9, weight_decay=1e-4)
+        return sgd
 
     def init(self):
         pass

@@ -89,7 +89,7 @@ for i in range(main_epochs):
     
     # Train Discriminator with KubeML
     print("--> Starting Training Discriminator on KubeML")
-    out = subprocess.check_output("./kubeml train --function disc-load --dataset mnist_gan --epochs 5 --lr 0.0002 --batch 64 --parallelism 10 --static", env=my_env, shell=True)
+    out = subprocess.check_output("./kubeml train --function disc-load --dataset mnist_gan --epochs 1 --lr 0.0002 --batch 64 --parallelism 3 --static", env=my_env, shell=True)
     out = out.decode("utf-8")
     job_id = re.sub(r"\W", "", out)
     if len(job_id) < 10:
